@@ -2,9 +2,9 @@ import math
 def change(coordinate, direction):
     cor_list = coordinate.split(':')
     cor_loat = float(cor_list[0]) + (float(cor_list[1]) + float(cor_list[2])/60)/60
-    if direction == 'N' or direction== 'W':
+    if direction == 'N' or direction == 'W':
         return cor_loat*(-1)
-    elif direction == 'S' or direction== 'E':
+    elif direction == 'S' or direction == 'E':
         return cor_loat
     else:
         return 0
@@ -35,5 +35,5 @@ def blh2xyz(b ,l, h):
     if str(((v * (1.0 - e2) + h) * sinp)) == 'NaN':
         r[2] = 0
     else:
-        r[2] = (v * (1.0 - e2) + h) * sinp
+        r[2] = -(v * (1.0 - e2) + h) * sinp
     return r
