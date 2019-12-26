@@ -8,14 +8,14 @@ from BLH2XYZ import blh2xyz
 
 
 PRE_LOCATION_BLH = {
-    'B': '31:14:40.84330',
-    'L': '121:35:32.85687',
-    'H': '34.8738'
+    'B': '31:14:40.84328192734967',
+    'L': '121:35:32.857075737083406',
+    'H': '35.00690099 '
 }
 PRE_LOCATION_XYZ = {
-    'X': '-2859303.0243',
-    'Y': '4649101.4526',
-    'Z': '3289134.8596'
+    'X': '-2859303.11731802',
+    'Y': '4649101.22957921',
+    'Z': '3289135.34910245'
 }
 
 def openfile(address):
@@ -101,11 +101,41 @@ def BLH2precise_neu(address):
     # print("‘{}’组————水平误差:{}；各方位结果：{}".format(address, sqrt(square(result_list[0])+square(result_list[1])), result_list))
 
 
+def method2(address):
+    df = openfile(address)
+    np_B = array(df['B']).tolist()
+    np_L = array(df['L']).tolist()
+    # np_H = array(df['H']).tolist()
+    B0 = [float(str(c).split(':')[2]) * 30 for c in np_B]
+    L0 = [float(str(c).split(':')[2]) * 30 for c in np_L]
+    # H0 = [float(str(c).split(':')[2]) * 30 for c in np_H]
+    res_b = Calculation_1(B0, float(PRE_LOCATION_BLH['B'].split(':')[2])*30)
+    res_l = Calculation_1(L0, float(PRE_LOCATION_BLH['L'].split(':')[2])*30)
+    print("‘{}’组————b误差:{}；l误差：{}".format(address, res_b, res_l))
+
+
+# def gga_method2(address):
+#     df = read_csv(address, encoding='ANSI', index_col=[i for i in range(10)])
+#
+#     print(df)
+#     np_B = array(df[2]).tolist()
+#     np_L = array(df[4]).tolist()
+#     print(np_B)
+
 
 if __name__ == '__main__':
-    XYZ2precise_xyz('1225/csv_1225千寻1243_1.csv')
-    BLH2precise_neu('1225/csv_1225_3_千寻.csv')
-    BLH2precise_neu('1225/csv_1225_3_苏研.csv')
+    method2('1225/csv_1225_1_千寻.csv')
+    method2('1225/csv_1225_1_苏研.csv')
+    method2('1225/csv_1225_2_千寻.csv')
+    method2('1225/csv_1225_2_苏研.csv')
+    method2('1225/csv_1225_3_千寻.csv')
+    method2('1225/csv_1225_3_苏研.csv')
+    XYZ2precise_xyz('1225/csv_1225_1_千寻.csv')
+    XYZ2precise_xyz('1225/csv_1225_1_苏研.csv')
+    XYZ2precise_xyz('1225/csv_1225_2_千寻.csv')
+    XYZ2precise_xyz('1225/csv_1225_2_苏研.csv')
+    XYZ2precise_xyz('1225/csv_1225_3_千寻.csv')
+    XYZ2precise_xyz('1225/csv_1225_3_苏研.csv')
 
 
 

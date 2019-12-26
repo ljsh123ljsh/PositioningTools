@@ -47,7 +47,8 @@ def main():
 
                     name = '$GPGGA'
 
-                    utc_time = get_time(line.split(',')[16])
+                    utc_time = get_time(line.split(',')[26])
+                    # utc_time = 0
 
                     B = eval(line.split(",")[5])
                     L = eval(line.split(",")[6])
@@ -55,12 +56,12 @@ def main():
                     B = round(int(B.split(":")[0])*100 + int(B.split(":")[1]) + float((B.split(":")[2]))/60, 7)
                     L = round(int(L.split(":")[0])*100 + int(L.split(":")[1]) + float((L.split(":")[2]))/60, 7)
 
-                    sta = state(line.split(',')[13])
-                    num = line.split(',')[20]
+                    sta = state(line.split(',')[23])
+                    num = line.split(',')[30]
                     shuiping = '1.0'
-                    tianxian_h = line.split(',')[8]
+                    tianxian_h = line.split(',')[14]
                     dadi_h = line.split(',')[7]
-                    chafen_ = line.split(',')[19]
+                    chafen_ = line.split(',')[29]
                     enD = '0007*7F'
 
                     ST = '{},{},{},N,{},E,{},{},{},{},M,{},M,{},{}\n'.format(name, utc_time, B, L, sta, num, shuiping,
