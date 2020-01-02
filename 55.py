@@ -28,5 +28,5 @@ def BLH2precise_neu(address):
     h_ave = average(np_H)
     print(b_ave, l_ave, h_ave)
 if __name__ == '__main__':
-    address = 'csv_1226111.csv'
+    address = '1225/csv_1227_1.csv'
     BLH2precise_neu(address)

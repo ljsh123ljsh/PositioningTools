@@ -124,20 +124,8 @@ def method2(address):
 
 
 if __name__ == '__main__':
-    method2('1225/csv_1225_1_千寻.csv')
-    method2('1225/csv_1225_1_苏研.csv')
-    method2('1225/csv_1225_2_千寻.csv')
-    method2('1225/csv_1225_2_苏研.csv')
-    method2('1225/csv_1225_3_千寻.csv')
-    method2('1225/csv_1225_3_苏研.csv')
-    XYZ2precise_xyz('1225/csv_1225_1_千寻.csv')
-    XYZ2precise_xyz('1225/csv_1225_1_苏研.csv')
-    XYZ2precise_xyz('1225/csv_1225_2_千寻.csv')
-    XYZ2precise_xyz('1225/csv_1225_2_苏研.csv')
-    XYZ2precise_xyz('1225/csv_1225_3_千寻.csv')
-    XYZ2precise_xyz('1225/csv_1225_3_苏研.csv')
+    method2('csv_010218abc.csv')
+    XYZ2precise_xyz('csv_010218abc.csv')
 
-
-
-
-
+    method2('csv_0102sy__10自.csv')
+    XYZ2precise_xyz('csv_0102sy__10自.csv')
